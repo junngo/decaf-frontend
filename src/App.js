@@ -1,13 +1,19 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
 import './styles/main.scss';
-import Counter from './components/Counter';  // Make sure the path is correct
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to Recoil</h1>
-      <Counter />
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
