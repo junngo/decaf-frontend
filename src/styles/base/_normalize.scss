@@ -22,3 +22,15 @@ img {
     max-width: 100%; // Ensures images are never wider than their container
     height: auto; // Keeps the original aspect ratio
 }
+
+// Reset for all buttons
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+  
