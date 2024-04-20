@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/components/Header.scss'; 
+import { useAuthActions } from '../../recoil/state/authActions';
+import '../../styles/components/Header.scss'; 
 
 const Header = () => {
   const navigate = useNavigate();
+  const { logout } = useAuthActions();
 
   const isLoggedIn = !!localStorage.getItem('token');
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    logout();
     navigate('/');
   };
 

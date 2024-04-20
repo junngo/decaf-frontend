@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import apiService from '../api/apiService';
+import { useAuthActions } from '../recoil/state/authActions';
 import '../styles/pages/SignInPage.scss';
 
 const SignInPage = () => {
   const navigate = useNavigate();
+  const { login } = useAuthActions();
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
   });
-
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -22,15 +22,12 @@ const SignInPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Clear any existing errors
+    setError('');
     try {
-      const response = await apiService.signIn(credentials);
-      console.log(response);
-      localStorage.setItem('token', response.data.jwt);
+      await login(credentials);
       navigate('/dashboard');
     } catch (error) {
       setError('Failed to login. Please check your credentials and try again.');
-      console.error('Login error:', error.response ? error.response.data : error.message);
     }
   };
 
