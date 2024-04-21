@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ApiService from '../api/apiService';
-import CategoryForm from '../components/Category/CategoryForm';
-import CategoryList from '../components/Category/CategoryList';
+import CategoryForm from '../components/category/CategoryForm';
+import CategoryList from '../components/category/CategoryList';
 
 const CategoriesPage = () => {
     const [expenseCategories, setExpenseCategories] = useState([]);

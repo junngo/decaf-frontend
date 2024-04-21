@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthActions } from '../../recoil/state/authActions';
-import '../../styles/components/Header.scss'; 
+import '../../styles/components/common/Header.scss'; 
 
 const Header = () => {
   const navigate = useNavigate();
