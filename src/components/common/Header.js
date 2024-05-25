@@ -27,7 +27,11 @@ function Header() {
     return (
         <AppBar position="static" color="transparent" elevation={0}
             sx={{
-            borderBottom: '1px solid #e0e0e0',
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 10,  // Ensure this is higher than Sidebar's zIndex
+                borderBottom: '1px solid #e0e0e0',
             }}
         >
             <Toolbar sx={{ justifyContent: 'space-between', margin: '0 auto', maxWidth: 1200, width: '100%', padding: '0 16px' }}>

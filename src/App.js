@@ -4,9 +4,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { AuthProvider } from './contexts/AuthContext';
 import AuthInitializer from './components/common/AuthInitializer';
 import Layout from './components/common/Layout';
+import ProtectedRoute  from './components/common/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import SignUp  from './pages/SignUp';
 import SignIn  from './pages/SignIn';
+import DashboardPage from './pages/DashboardPage';
 
 const theme = createTheme({
   palette: {
@@ -25,7 +27,6 @@ const theme = createTheme({
       secondary: '#555', // Lighter text color, adjust as needed
     },
   },
-  // You can also adjust the typography to suit a minimalistic design
   typography: {
     fontFamily: [
       '"Helvetica Neue"',
@@ -44,14 +45,19 @@ function App() {
       <CssBaseline />
       <Router>
         <AuthProvider>
-          <Layout>
-            <AuthInitializer />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
+          <AuthInitializer />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
-            </Routes>
-          </Layout>
+              <Route path="dashboard" element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              } />
+            </Route>
+          </Routes>
         </AuthProvider>
       </Router>
     </ThemeProvider>
