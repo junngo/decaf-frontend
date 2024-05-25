@@ -1,0 +1,18 @@
+.category-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    input, select, button {
+        padding: 10px;
+        border-radius: 5px;
+    }
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}

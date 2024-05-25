@@ -13,6 +13,9 @@ const Sidebar = () => {
                     <NavLink to="/dashboard" className={getActiveLinkClass}>Dashboard</NavLink>
                 </li>
                 <li>
+                    <NavLink to="/categories" className={getActiveLinkClass}>Category</NavLink>
+                </li>
+                <li>
                     <NavLink to="/accounts" className={getActiveLinkClass}>Accounts</NavLink>
                 </li>
                 <li>
