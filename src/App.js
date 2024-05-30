@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import SignUp  from './pages/SignUp';
 import SignIn  from './pages/SignIn';
 import DashboardPage from './pages/DashboardPage';
+import SettingsPage from './pages/SettingsPage';
 
 const theme = createTheme({
   palette: {
@@ -55,6 +56,11 @@ function App() {
                 <ProtectedRoute>
                   <DashboardPage />
                 </ProtectedRoute>
+              } />
+              <Route path="settings" element={
+                  <ProtectedRoute>
+                      <SettingsPage />
+                  </ProtectedRoute>
               } />
             </Route>
           </Routes>

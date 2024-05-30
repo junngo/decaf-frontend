@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, ListItemButton } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { useAuth } from '../../contexts/AuthContext';
 
 const Sidebar = () => {
@@ -29,14 +30,17 @@ const Sidebar = () => {
       }}
     >
       <List>
-        <ListItem button component={Link} to="/dashboard">
-          <ListItemIcon><DashboardIcon /></ListItemIcon>
-          <ListItemText primary="Dashboard" />
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to="/dashboard">
+              <ListItemIcon><DashboardIcon /></ListItemIcon>
+              <ListItemText primary="Dashboard" />
+          </ListItemButton>
         </ListItem>
-        {/* More items can be added here */}
-        <ListItem button onClick={logout}>
-          <ListItemIcon><ExitToAppIcon /></ListItemIcon>
-          <ListItemText primary="Logout" />
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to="/settings">
+            <ListItemIcon><SettingsIcon /></ListItemIcon>
+            <ListItemText primary="Settings" />
+          </ListItemButton>
         </ListItem>
       </List>
     </Drawer>
